@@ -32,3 +32,4 @@ with app.app_context():
     db.session.add(Review(comment="cable too short",
                    customer=customer3, item=item3))
     db.session.commit()
+    

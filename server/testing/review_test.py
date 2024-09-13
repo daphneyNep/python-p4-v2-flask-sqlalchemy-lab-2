@@ -26,6 +26,21 @@ class TestReview:
             assert hasattr(r, 'id')
             assert db.session.query(Review).filter_by(id=r.id).first()
 
+    # def test_can_be_saved_to_database(self):
+    #     '''can be added to a transaction and committed to review table with comment column.'''
+    #     with app.app_context():
+    #         assert 'comment' in Review.__table__.columns
+    #         # Create and save a Customer and an Item first
+    #         c = Customer(name='John Doe')
+    #         i = Item(name='Sample Item', price=19.99)
+    #         db.session.add_all([c, i])
+    #         db.session.commit()
+    #         r = Review(comment='great!', customer=c, item=i)
+    #         db.session.add(r)
+    #         db.session.commit()
+    #         assert hasattr(r, 'id')
+    #         assert db.session.query(Review).filter_by(id=r.id).first()
+
     def test_is_related_to_customer_and_item(self):
         '''has foreign keys and relationships'''
         with app.app_context():
@@ -49,3 +64,4 @@ class TestReview:
             assert r.item == i
             assert r in c.reviews
             assert r in i.reviews
+            
